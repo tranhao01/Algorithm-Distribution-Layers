@@ -1,0 +1,33 @@
+flowchart TD
+
+subgraph T1["Tầng 1: Người dùng (User Profile)"]
+  U["Hành vi: xem/like/comment/share<br/>Thời gian dừng, tốc độ lướt<br/>Ngôn ngữ app, cài đặt"]
+end
+
+subgraph T2["Tầng 2: Thiết bị (Device Profile)"]
+  D["Model máy, OS, phiên bản app<br/>Device fingerprint"]
+end
+
+subgraph T3["Tầng 3: Phiên mạng (IP Session)"]
+  IPS["Địa chỉ IP, thời gian, loại mạng (Wi-Fi/4G)<br/>Vị trí suy ra từ IP/Wi-Fi"]
+end
+
+subgraph T4["Tầng 4: Cụm IP (Household/Workplace)"]
+  H["Nhóm người dùng chung IP theo thời gian<br/>Gợi ý chéo trong cụm"]
+end
+
+subgraph T5["Tầng 5: Khu vực địa lý (Geo Region)"]
+  G["Quận/Huyện, Thành phố, Quốc gia<br/>Trend theo vùng & chiến dịch quảng cáo"]
+end
+
+subgraph T6["Tầng 6: Siêu vùng/Quốc tế (Macro Region)"]
+  M["Đông Nam Á, Châu Âu, Toàn cầu<br/>Điều phối nội dung/nhạc/trend quy mô lớn"]
+end
+
+U --> D --> IPS --> H --> G --> M
+
+classDef strong fill:#e3f2fd,stroke:#64b5f6,stroke-width:2px;
+classDef mild fill:#f1f8e9,stroke:#9ccc65,stroke-width:1.5px;
+
+class U,D strong
+class IPS,H,G,M mild
